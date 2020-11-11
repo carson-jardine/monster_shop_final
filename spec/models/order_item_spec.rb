@@ -50,12 +50,5 @@ RSpec.describe OrderItem do
       expect(@order_item_4.discounted_price).to eq(true)
       expect(@order_item_4.price).to eq(37.5)
     end
-
-    it ".discounted_subtotal" do
-      discount = @megan.discounts.create!(rate: 25, quantity: 10)
-      @order_3 = @user.orders.create!
-      @order_item_4 = @order_3.order_items.create!(item: @giant, price: @giant.price, quantity: 10)
-      expect(@order_item_4.discounted_subtotal).to eq(375)
-    end
   end
 end
