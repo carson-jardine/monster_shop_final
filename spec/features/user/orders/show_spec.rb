@@ -95,17 +95,6 @@ RSpec.describe 'Order Show Page' do
 
         expect(page).to have_content("Congrats! You Saved Today")
         expect(page).to have_content("Total: $162.5")
-        expect(page).to_not have_content("Total: $200")
-      end
-      it "I see the discounted order_items subtotals" do
-        visit "/profile/orders/#{@order_3.id}"
-
-        within "#order-item-#{@order_item_4.id}" do
-          expect(page).to have_content("Discounted Subtotal")
-        end
-        within "#order-item-#{@order_item_5.id}" do
-          expect(page).to_not have_content("Discounted Subtotal")
-        end
       end
     end
   end

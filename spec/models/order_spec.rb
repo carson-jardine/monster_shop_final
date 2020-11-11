@@ -27,15 +27,15 @@ RSpec.describe Order do
       expect(@order_2.grand_total).to eq(140.5)
     end
 
-    it ".grand_total with discounts" do
+    it ".discounted_total" do
       @order_3 = @user.orders.create!
       @order_item_4 = @order_3.order_items.create!(item: @giant, price: @giant.price, quantity: 10)
       @order_item_5 = @order_3.order_items.create!(item: @hippo, price: @hippo.price, quantity: 1)
 
       expect(@order_3.grand_total).to eq(550)
-      
+
       discount = @megan.discounts.create!(rate: 25, quantity: 10)
-      expect(@order_3.grand_total).to eq(425)
+      expect(@order_3.discounted_total).to eq(425)
     end
 
     it '.count_of_items' do
