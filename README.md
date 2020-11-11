@@ -4,7 +4,7 @@ Turing School of Software and Design - BE Module 2 Final Project
 ### Overview
 "Monster Shop" is a fictional e-commerce website where users can register, add items to their cart and checkout, Merchant users can fulfill orders and admin users can ship orders. Additionally, a merchant user can create, apply, edit, and delete discounts for "bulk" purchases of items they sell.
 
-Check out the live site on Heroku (here!)[https://tranquil-sea-69659.herokuapp.com]
+Check out the live site on Heroku [here!](https://tranquil-sea-69659.herokuapp.com)
 
 Testing Status:
 * SimpleCov - 100% Coverage
