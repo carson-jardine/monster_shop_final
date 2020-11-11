@@ -9,10 +9,14 @@ describe 'As an employee of a merchant' do
       @discount_1 = @merchant_1.discounts.create!(rate: 5, quantity: 10)
       @discount_2 = @merchant_1.discounts.create!(rate: 10, quantity: 20)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      visit '/login'
+      
+      fill_in :email, with: @user_1.email
+      fill_in :password, with: @user_1.password
+      click_button 'Log In'
     end
 
-    xit "I can delete discount from index page" do
+    it "I can delete discount from index page" do
       visit '/merchant/discounts'
 
       within "#discount-#{@discount_2.id}" do
@@ -26,7 +30,7 @@ describe 'As an employee of a merchant' do
       expect(page).to_not have_content(@discount_2.rate)
     end
 
-    xit "I can delete discount from show page" do
+    it "I can delete discount from show page" do
       visit "/merchant/discounts/#{@discount_2.id}"
 
       click_link("Delete Discount")
