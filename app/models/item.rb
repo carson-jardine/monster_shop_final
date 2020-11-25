@@ -35,5 +35,6 @@ class Item < ApplicationRecord
 
   def discount_eligible(item_quantity)
     @discount = discounts.where('quantity <= ?', item_quantity).order(rate: :desc).first
+    # Add . limit don't make AR do more work than it needs to. 
   end
 end

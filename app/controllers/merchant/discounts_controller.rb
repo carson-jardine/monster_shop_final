@@ -18,15 +18,15 @@ class Merchant::DiscountsController < Merchant::BaseController
   end
 
   def show
-    @discount = Discount.find(params[:id])
+    @discount = Discount.find(params[:discount_id])
   end
 
   def edit
-    @discount = Discount.find(params[:id])
+    @discount = Discount.find(params[:discount_id])
   end
 
   def update
-    @discount = Discount.find(params[:id])
+    @discount = Discount.find(params[:discount_id])
     @discount.update(discount_params)
     if @discount.save
       redirect_to "/merchant/discounts"
@@ -37,7 +37,7 @@ class Merchant::DiscountsController < Merchant::BaseController
   end
 
   def destroy
-    discount = Discount.find(params[:id])
+    discount = Discount.find(params[:discount_id])
     discount.destroy
     redirect_to "/merchant/discounts"
   end

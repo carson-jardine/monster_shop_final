@@ -66,6 +66,8 @@ RSpec.describe Cart do
       end
 
       expect(@cart.discounted_subtotal_of(@hippo.id)).to eq(187.5)
+      # test edge cases
+      #test even if no discount
     end
 
     it '.limit_reached?()' do

@@ -44,7 +44,8 @@ RSpec.describe Item do
     end
 
     it ".discount_eligible()" do
-
+      #describe discount_eligible
+      #break out into diff tests
       expect(@ogre.discount_eligible(1)).to eq(nil)
       expect(@ogre.discount_eligible(2)).to eq(@discount_1)
       expect(@ogre.discount_eligible(3)).to eq(@discount_1)

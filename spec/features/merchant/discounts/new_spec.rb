@@ -10,7 +10,7 @@ describe 'As an employee of a merchant' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     end
     it "I can fill in a form for a new discount" do
-      visit new_merchant_discount_path
+      visit merchant_discounts_new_path
 
       fill_in :rate, with: 15.5
       fill_in :quantity, with: 35
@@ -29,7 +29,7 @@ describe 'As an employee of a merchant' do
 
     describe "I get an error message" do
       it "When I don't fully fill out a form" do
-        visit new_merchant_discount_path
+        visit merchant_discounts_new_path
 
         click_on("Submit")
         expect(page).to have_content("rate: [\"can't be blank\", \"is not a number\"]")
@@ -37,7 +37,7 @@ describe 'As an employee of a merchant' do
       end
 
       it "When I give negative numbers" do
-        visit new_merchant_discount_path
+        visit merchant_discounts_new_path
         fill_in :rate, with: -19
         fill_in :quantity, with: -35
 
@@ -46,7 +46,7 @@ describe 'As an employee of a merchant' do
         expect(page).to have_content("quantity: [\"must be greater than 0\"]")
       end
       it "When I go outside the accepted values" do
-        visit new_merchant_discount_path
+        visit merchant_discounts_new_path
         fill_in :rate, with: 190
 
         click_on("Submit")

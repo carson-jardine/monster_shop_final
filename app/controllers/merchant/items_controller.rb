@@ -18,11 +18,11 @@ class Merchant::ItemsController < Merchant::BaseController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
     if @item.update(item_params)
       redirect_to "/merchant/items"
     else
@@ -32,7 +32,7 @@ class Merchant::ItemsController < Merchant::BaseController
   end
 
   def change_status
-    item = Item.find(params[:id])
+    item = Item.find(params[:item_id])
     item.update(active: !item.active)
     if item.active?
       flash[:notice] = "#{item.name} is now available for sale"
@@ -43,7 +43,7 @@ class Merchant::ItemsController < Merchant::BaseController
   end
 
   def destroy
-    item = Item.find(params[:id])
+    item = Item.find(params[:item_id])
     if item.orders.empty?
       item.destroy
     else

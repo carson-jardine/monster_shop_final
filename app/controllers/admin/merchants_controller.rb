@@ -3,7 +3,7 @@ class Admin::MerchantsController < Admin::BaseController
   end
 
   def update
-    merchant = Merchant.find(params[:id])
+    merchant = Merchant.find(params[:merchant_id])
     merchant.update(enabled: !merchant.enabled)
     if merchant.enabled?
       merchant.items.update_all(active: true)
