@@ -11,7 +11,7 @@ Testing Status:
 * RSpec - 278 Tests, 0 Failures
 
 ### Implementation
-Fork and/or clone this repo `git@github.com:carson-jardine/monster_shop_final-1.git`
+Fork and/or clone this repo `git@github.com:carson-jardine/monster_shop_final.git`
 
 Install and Update Gems
 ```
